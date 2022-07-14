@@ -21,6 +21,14 @@ class ApplicationController < Sinatra::Base
         items.to_json
       end
 
+      post '/trips' do # Create a trip
+        trip = Trip.create(
+          name: params[:name]
+        ) # Add named parameters for text fields
+        trip.to_json
+      end
+     
+
       
      
      
