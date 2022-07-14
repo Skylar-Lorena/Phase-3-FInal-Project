@@ -15,5 +15,12 @@ class ApplicationController < Sinatra::Base
         items = Item.all
         items.to_json
       end
+
+      get '/items/:id' do # List specified item
+        items = Item.find(params[:id])
+        items.to_json
+      end
+
+      
      
      
