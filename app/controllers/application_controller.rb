@@ -5,9 +5,15 @@ class ApplicationController < Sinatra::Base
       trips = Trip.all
       trips.to_json
     end
-    
+
     get '/trips/:id' do # List the specified trip and its items
         trips = Trip.find(params[:id])
         trips.to_json(include: :items)
       end
+
+      get '/items' do # List all items
+        items = Item.all
+        items.to_json
+      end
+     
      
