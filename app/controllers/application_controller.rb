@@ -35,6 +35,26 @@ class ApplicationController < Sinatra::Base
         ) # Add named parameters for text fields
         item.to_json
       end
+
+      patch '/trips/:id' do # Update specific trip's info
+        trips = Trip.find(params[:id])
+        trips.update(name: params[:name])
+        trips.to_json
+      end
+      
+      delete '/trips/:id' do # Deletes the corresponding trip
+        trip = Trip.find(params[:id])
+        trip.destroy
+        trip.to_json
+      end
+      
+      delete '/items/:id' do # Deletes the corresponding trip
+        item = Item.find(params[:id])
+        item.destroy
+        item.to_json
+      end
+     end
+     
      
      
 
