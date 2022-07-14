@@ -28,7 +28,7 @@ class ApplicationController < Sinatra::Base
         trip.to_json
       end
 
-      post '/items' do # Create a item
+      post '/items' do # Create an item
         item = Item.create(
           name: params[:name],
           trip_id: params[:trip_id]
